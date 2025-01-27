@@ -59,6 +59,7 @@ const fontRule = {
 
 const htmlRule = {
   test: /\.html$/,
+  exclude: /src\/quickstart\.html/, // Exclude to avoid double processing
   use: [
     {
       loader: "html-loader",
@@ -88,6 +89,7 @@ module.exports = function (_env = {}, argv = {}) {
   const envVars = {
     GIT_SHA: gitSha,
     PORT: process.env.PORT || "1234",
+    EMULATOR_ENDPOINT: process.env.EMULATOR_ENDPOINT || "https://localhost:8081",
   };
 
   if (mode === "production") {
@@ -135,6 +137,12 @@ module.exports = function (_env = {}, argv = {}) {
       filename: "quickstart.html",
       template: "src/quickstart.html",
       chunks: ["quickstart"],
+      templateParameters: {
+        uri: envVars.EMULATOR_ENDPOINT,
+        primaryKey: "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
+        primaryConnectionString: `AccountEndpoint=${envVars.EMULATOR_ENDPOINT}/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`,
+        mongoConnectionString: "mongodb://localhost:C2y6yDjf5%2FR%2Bob0N8A7Cgv30VRDJIWEHLM%2B4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw%2FJw%3D%3D@localhost:10255/admin?ssl=true",
+      },
     }),
     new HtmlWebpackPlugin({
       filename: "index.html",
