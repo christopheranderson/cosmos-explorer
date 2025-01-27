@@ -14,27 +14,27 @@
         <p class="Introline2">Now, let's connect a sample app to it.</p>
         <div id="divQuickStartConnections">
           <p class="Introline2">URI</p>
-          <input type="text" class="codeblock" readonly="readonly" value="https://localhost:8081" />
+          <input type="text" class="codeblock" readonly="readonly" value="<%= uri %>" />
           <p class="Introline2">Primary Key</p>
           <input
             type="text"
             class="codeblock"
             readonly="readonly"
-            value="C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
+            value="<%= primaryKey %>"
           />
           <p class="Introline2">Primary Connection String</p>
           <input
             type="text"
             class="codeblock"
             readonly="readonly"
-            value="AccountEndpoint=https://localhost:8081/;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
+            value="<%= primaryConnectionString %>"
           />
           <p class="Introline2">Mongo Connection String</p>
           <input
             type="text"
             class="codeblock"
             readonly="readonly"
-            value="mongodb://localhost:C2y6yDjf5%2FR%2Bob0N8A7Cgv30VRDJIWEHLM%2B4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw%2FJw%3D%3D@localhost:10255/admin?ssl=true"
+            value="<%= mongoConnectionString %>"
           />
         </div>
         <p class="Introline3"><b>Choose a platform</b></p>
